@@ -2,3 +2,5 @@
 
 select *
 from sale
+where citta = 'Pisa'
+
