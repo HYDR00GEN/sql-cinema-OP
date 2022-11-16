@@ -14,4 +14,12 @@ where film.regista like '%Fellini%' and annoproduzione > 1960
 
 select titolo, genere, nazionalita, annoproduzione
 from film
-where genere like '%antascienza%' and nazionalita = 'Giapponese' or nazionalita = 'Francese' and annoproduzione > 1990
+where (genere like '%antascienza%' and nazionalita = 'Giapponese') or (nazionalita = 'Francese' and annoproduzione > 1990)
+
+
+/** 4 -  titolo film fantascienza giapp prod dopo il 1990 o franc  **/
+
+select titolo, genere, annoproduzione, nazionalita
+from film
+where (genere like '%ommed%' and annoproduzione > 2016) or nazionalita like '%pagno%'
+
