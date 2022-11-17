@@ -108,3 +108,12 @@ where s.citta = 'Pisa'
 select s.citta, count(codsala)
 from sale as s
 group by s.citta
+
+
+/** 16 --- per ogni citta nr di sale con piu di 60 posti **/
+
+select s.citta, count(codsala)
+from sale as s
+where s.posti > 60
+group by s.citta
+
