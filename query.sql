@@ -30,6 +30,12 @@ from film
 where regista = (
     select regista
     from film
-    where titolo like '%ent%'
+    where titolo like '%ement%'
 )
+
+/** 6 - titolo e genere proiettati  a natale 2004 (23 ottob 2021)**/ 
+
+select distinct titolo, genere
+from proiezioni as p join film as f on p.codfilm = f.codfilm
+where dataproiezione = '#2021-10-23#'
 
