@@ -57,3 +57,10 @@ from proiezioni as p
     join attori as a on a.codattore = r.codattore
 where s.citta like '%apol%' and p.dataproiezione = '#2004-12-25#' and a.nome like '%illiams%'
 
+/** 9 -  titoli film recita mastroianni oppure s.loren   **/
+
+select f.titolo, a.nome
+from recita as r 
+    join film as f on r.codfilm = f.codfilm
+    join attori as a on a.codattore = r.codattore
+where a.nome like any (array['%astroiann%', '%oren%'])
