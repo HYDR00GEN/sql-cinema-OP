@@ -84,8 +84,9 @@ group by f.titolo, a.nome
 
 /** 12 -  per ogni film proiettato a pisa nel gen 2005 (sost. milano apr 2019). titolo film e nome sala**/
 
-select f.titolo, s.nome as nome_sala, s.citta, p.dataproiezione
+select f.titolo, s.nome as nome_sala
 from proiezioni as p 
     join film as f on p.codfilm = f.codfilm
     join sale as s on s.codsala = p.codsala
 where s.citta like '%ilan%' and p.dataproiezione >= '#2019-04-01#' and  p.dataproiezione < '#2019-05-01#'
+group by f.titolo, s.nome
