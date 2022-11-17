@@ -47,7 +47,12 @@ from proiezioni as p
     join sale as s on s.codsala = p.codsala
 where s.citta like '%apol%' and dataproiezione = '#2004-12-25#'
 
-/** 8 -     **/
+/** 8 - nomi di sale di napoli nel giorno di natale 2004 proiettato film con R.Williams  **/
 
-select *
-from film
+select f.titolo
+from proiezioni as p 
+    join film as f on p.codfilm = f.codfilm
+    join sale as s on s.codsala = p.codsala
+    join recita as r on p.codfilm = recita.codfilm
+    join attori as a on a.codattore = r.codattore
+where s.citta like '%apol%' and p.dataproiezione = '#2004-12-25#' and a.nome like '%illiams%'
