@@ -67,10 +67,17 @@ where a.nome like any (array['%astroiann%', '%oren%'])
 
 /** 10 -  titolo film recita  mastroianni e loren**/
 
-select distinct f.titolo
+-- select distinct f.titolo
+-- from recita as r 
+--     join film as f on r.codfilm = f.codfilm
+--     join attori as a on a.codattore = r.codattore
+-- where a.nome like '%astroia%'
+
+/** 11 -  per ogni film in cui recita attore FR (sost. in Americana), il titolo film ed attore  **/
+
+select f.titolo, a.nome
 from recita as r 
     join film as f on r.codfilm = f.codfilm
     join attori as a on a.codattore = r.codattore
-where a.nome like '%astroia%' and (
-    select f.titolo
-)
+where a.nazionalita like '%merican%'
+group by f.titolo, a.nome
