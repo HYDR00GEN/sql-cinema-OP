@@ -90,3 +90,9 @@ from proiezioni as p
     join sale as s on s.codsala = p.codsala
 where s.citta like '%ilan%' and p.dataproiezione >= '#2019-04-01#' and  p.dataproiezione < '#2019-05-01#'
 group by f.titolo, s.nome
+
+/** 13 -  nr sale di pisa con piu di 60 posti **/
+
+select count(*) as Sale_con_piu_60posti
+from sale as s
+where posti > 60 and s.citta = 'Pisa'
