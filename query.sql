@@ -71,7 +71,7 @@ where a.nome like any (array['%astroiann%', '%oren%'])
 -- from recita as r 
 --     join film as f on r.codfilm = f.codfilm
 --     join attori as a on a.codattore = r.codattore
--- where a.nome like '%astroia%'
+-- where a.nome like '%astroia%' and a.nome like '%ore%'
 
 /** 11 -  per ogni film in cui recita attore FR (sost. in Americana), il titolo film ed attore  **/
 
@@ -81,3 +81,11 @@ from recita as r
     join attori as a on a.codattore = r.codattore
 where a.nazionalita like '%merican%'
 group by f.titolo, a.nome
+
+/** 12 -  per ogni film proiettato a pisa nel gen 2005 (sost. milano apr 2019). titolo film e nome sala**/
+
+select f.titolo, s.nome as nome_sala, s.citta, p.dataproiezione
+from proiezioni as p 
+    join film as f on p.codfilm = f.codfilm
+    join sale as s on s.codsala = p.codsala
+where s.citta like '%ilan%' and p.dataproiezione >= '#2019-04-01#' and  p.dataproiezione < '#2019-05-01#'
