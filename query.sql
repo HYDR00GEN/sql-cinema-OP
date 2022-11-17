@@ -117,3 +117,9 @@ from sale as s
 where s.posti > 60
 group by s.citta
 
+/** 17 ---- per ogni regista il nr di film diretti dopo il 1990**/
+
+select f.regista, count(f.annoproduzione)
+from film as f
+where annoproduzione > 1990
+group by f.regista
