@@ -59,8 +59,16 @@ where s.citta like '%apol%' and p.dataproiezione = '#2004-12-25#' and a.nome lik
 
 /** 9 -  titoli film recita mastroianni oppure s.loren   **/
 
-select f.titolo, a.nome
+select distinct f.titolo
 from recita as r 
     join film as f on r.codfilm = f.codfilm
     join attori as a on a.codattore = r.codattore
 where a.nome like any (array['%astroiann%', '%oren%'])
+
+/** 10 -  titolo film recita  mastroianni e loren**/
+
+select f.titolo
+from recita as r 
+    join film as f on r.codfilm = f.codfilm
+    join attori as a on a.codattore = r.codattore
+where a.nome 
