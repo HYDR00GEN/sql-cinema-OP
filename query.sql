@@ -39,3 +39,10 @@ select distinct titolo, genere
 from proiezioni as p join film as f on p.codfilm = f.codfilm
 where dataproiezione = '#2021-10-23#'
 
+/** 7 -    titolo e genere proiettati a napoli a natale 2004 (sostituito con Milano 23 ott 2021 [seconda proiezione a Roma]) **/
+
+select f.titolo, f.genere
+from proiezioni as p 
+    join film as f on p.codfilm = f.codfilm
+    join sale as s on s.codsala = p.codsala
+where s.citta like '%ilan%' and dataproiezione = '#2021-10-23#'
