@@ -49,10 +49,11 @@ where s.citta like '%apol%' and dataproiezione = '#2004-12-25#'
 
 /** 8 - nomi di sale di napoli nel giorno di natale 2004 proiettato film con R.Williams  **/
 
-select f.titolo
+select s.nome as Nomi_sale
 from proiezioni as p 
     join film as f on p.codfilm = f.codfilm
     join sale as s on s.codsala = p.codsala
-    join recita as r on p.codfilm = recita.codfilm
+    join recita as r on p.codfilm = r.codfilm
     join attori as a on a.codattore = r.codattore
 where s.citta like '%apol%' and p.dataproiezione = '#2004-12-25#' and a.nome like '%illiams%'
+
