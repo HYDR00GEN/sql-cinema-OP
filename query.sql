@@ -96,3 +96,10 @@ group by f.titolo, s.nome
 select count(*) as Sale_con_piu_60posti
 from sale as s
 where posti > 60 and s.citta = 'Pisa'
+
+/** 14 -- totale posti nelle sale di pisa **/
+
+select sum(posti) as Tot_posti_in_Pisa
+from sale as s
+where s.citta = 'Pisa'
+
