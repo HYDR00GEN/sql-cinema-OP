@@ -23,3 +23,13 @@ select titolo, genere, annoproduzione, nazionalita
 from film
 where (genere like '%ommed%' and annoproduzione > 2016) or nazionalita like '%pagno%'
 
+/** 5 -  titolo film dello stesso regista di casablanca (sostituito con "Memento") **/
+
+select titolo, regista
+from film
+where regista = (
+    select regista
+    from film
+    where titolo like '%ent%'
+)
+
