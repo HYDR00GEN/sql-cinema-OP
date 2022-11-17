@@ -129,3 +129,9 @@ group by f.regista
 select f.regista, sum(incasso) as tot_incasso
 from film as f join proiezioni as p on f.codfilm = p.codfilm
 group by f.regista
+
+/** 19 ---  per ogni film di spielberg, titolo film nr totale di proiezioni a pisa, e incasso totale**/
+
+select 
+
+
