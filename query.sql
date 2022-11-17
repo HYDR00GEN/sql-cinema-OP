@@ -67,8 +67,10 @@ where a.nome like any (array['%astroiann%', '%oren%'])
 
 /** 10 -  titolo film recita  mastroianni e loren**/
 
-select f.titolo
+select distinct f.titolo
 from recita as r 
     join film as f on r.codfilm = f.codfilm
     join attori as a on a.codattore = r.codattore
-where a.nome 
+where a.nome like '%astroia%' and (
+    select f.titolo
+)
