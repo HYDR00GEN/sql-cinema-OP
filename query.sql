@@ -123,3 +123,9 @@ select f.regista, count(f.annoproduzione)
 from film as f
 where annoproduzione > 1990
 group by f.regista
+
+/** 18 ---  per ogni regista l'incasso totale di tutte le sue produzioni**/
+
+select f.regista, sum(incasso) as tot_incasso
+from film as f join proiezioni as p on f.codfilm = p.codfilm
+group by f.regista
