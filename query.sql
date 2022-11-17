@@ -103,3 +103,8 @@ select sum(posti) as Tot_posti_in_Pisa
 from sale as s
 where s.citta = 'Pisa'
 
+/** 15 --  per ogni citta il numero di sale  **/
+
+select s.citta, count(codsala)
+from sale as s
+group by s.citta
